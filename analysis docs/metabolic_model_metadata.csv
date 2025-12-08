@@ -1,0 +1,169 @@
+,Supermodule_id,Super.Module.class,X,Module_id,Compound_IN_name,Compound_IN_ID,Compound_OUT_name,Compound_OUT_ID,rxnName
+1,1,Glycolysis + TCA cycle,M_1,1,Glucose,C00267,G6P,C00668,Glucose -> G6P
+2,1,Glycolysis + TCA cycle,M_2,2,G6P,C00668,G3P,C00118,G6P -> G3P
+3,1,Glycolysis + TCA cycle,M_3,3,G3P,C00118,3PD,C00197,G3P -> 3PD
+4,1,Glycolysis + TCA cycle,M_4,4,3PD,C00197,Pyruvate,C00022,3PD -> Pyruvate
+5,1,Glycolysis + TCA cycle,M_5,5,Pyruvate,C00022,Acetyl-Coa,C00024,Pyruvate -> Acetyl-Coa
+6,1,Glycolysis + TCA cycle,M_6,6,Pyruvate,C00022,Lactate,C00256,Pyruvate -> Lactate
+7,1,Glycolysis + TCA cycle,M_7,7,Acetyl-CoA+Oxaloacetate,C00024+C00036,Citrate,C00158,Acetyl-CoA+Oxaloacetate -> Citrate
+8,1,Glycolysis + TCA cycle,M_8,8,Citrate,C00158,2OG,C00026,Citrate -> 2OG
+9,1,Glycolysis + TCA cycle,M_9,9,2OG,C00026,Succinyl-CoA,C00091,2OG -> Succinyl-CoA
+10,1,Glycolysis + TCA cycle,M_10,10,Succinyl-CoA,C00091,Succinate,C00042,Succinyl-CoA -> Succinate
+11,1,Glycolysis + TCA cycle,M_11,11,Succinate,C00042,Fumarate,C00122,Succinate -> Fumarate
+12,1,Glycolysis + TCA cycle,M_12,12,Fumarate,C00122,Malate,C00149,Fumarate -> Malate
+13,1,Glycolysis + TCA cycle,M_13,13,Malate,C00149,Oxaloacetate,C00036,Malate -> Oxaloacetate
+14,1,Glycolysis + TCA cycle,M_14,14,Pyruvate,C00022,Oxaloacetate,C00036,Pyruvate -> Oxaloacetate
+15,2,Serine Metabolism,M_15,15,3PD,C00197,Serine,C00065,3PD -> Serine
+16,2,Serine Metabolism,M_16,16,Serine,C00065,Pyruvate,C00022,Serine -> Pyruvate
+17,2,Serine Metabolism,M_17,17,Serine,C00065,Cysteine,C00097,Serine -> Cysteine
+18,2,Serine Metabolism,M_18,18,Serine,C00065,Glycine,C00037,Serine -> Glycine
+19,2,Serine Metabolism,M_19,19,Glycine,C00037,Creatine,C00300,Glycine -> Creatine
+20,2,Serine Metabolism,M_20,20,Glycine,C00037,Glyoxylate,C00048,Glycine -> Glyoxylate
+21,2,Serine Metabolism,M_21,21,Choline,C00114,Glycine,C00037,Choline -> Glycine
+22,2,Serine Metabolism,M_22,22,Glycine,C00037,Glycine-OUT,C00000,Glycine -> Glycine-OUT
+23,2,Serine Metabolism,M_23,23,Glycine,C00037,Glutathione,C00051,Glycine -> Glutathione
+24,2,Serine Metabolism,M_24,24,Glutathione,C00051,Glycine + Cysteine,C00037+C00097,Glutathione -> Glycine + Cysteine
+25,2,Serine Metabolism,M_25,25,Glutathione,C00051,glutamate,C00025,Glutathione -> glutamate
+26,2,Serine Metabolism,M_26,26,Glutamate + Cysteine,C00025+C00097,Glutathione,C00051,Glutamate + Cysteine -> Glutathione
+27,2,Serine Metabolism,M_27,27,Serine,C00065,2-Aminoacrylate,C02218,Serine -> 2-Aminoacrylate
+28,2,Serine Metabolism,M_28,28,Serine,C00065,Methionine,C00073,Serine -> Methionine
+29,2,Serine Metabolism,M_29,29,Cysteine,C00097,Pyruvate,C00022,Cysteine -> Pyruvate
+30,2,Serine Metabolism,M_30,30,Methionine,C00073,Cysteine,C00097,Methionine -> Cysteine
+31,2,Serine Metabolism,M_31,31,Methionine,C00073,Methionine-OUT,C00000,Methionine -> Methionine-OUT
+32,2,Serine Metabolism,M_32,32,Threonine,C00188,Propanoyl-CoA,C00100,Threonine -> Propanoyl-CoA
+33,3,Pentose phosphate,M_33,33,G3P,C00118,PRPP,C00119,G3P -> PRPP
+34,4,Fatty Acids Metabolism/Synthesis,M_34,34,Acetyl-CoA,C00024,Fatty Acid,CC0001,Acetyl-CoA -> Fatty Acid
+35,4,Fatty Acids Metabolism/Synthesis,M_35,35,Fatty Acid,CC0001,Acetyl-CoA,C00024,Fatty Acid -> Acetyl-CoA
+36,5,Aspartate Metabolism,M_36,36,Aspartate,C00049,Pyrimidine,CC0002,Aspartate -> Pyrimidine
+37,5,Aspartate Metabolism,M_37,37,Aspartate,C00049,Aspartate-OUT,C00000,Aspartate -> Aspartate-OUT
+38,5,Aspartate Metabolism,M_38,38,Aspartate,C00049,Asparagine,C00152,Aspartate -> Asparagine
+39,5,Aspartate Metabolism,M_39,39,Aspartate,C00049,Fumarate,C00122,Aspartate -> Fumarate
+40,5,Aspartate Metabolism,M_40,40,Aspartate,C00049,Oxaloacetate,C00036,Aspartate -> Oxaloacetate
+41,6,Beta-Alanine Metabolism,M_41,41,Aspartate,C00049,B-Alanine,C00099,Aspartate -> B-Alanine
+42,6,Beta-Alanine Metabolism,M_42,42,Spermine,C00750,B-Alanine,C00099,Spermine -> B-Alanine
+43,6,Beta-Alanine Metabolism,M_43,43,Histidine,C00135,B-Alanine,C00099,Histidine -> B-Alanine
+44,6,Beta-Alanine Metabolism,M_44,44,B-Alanine,C00099,Acetyl-CoA,C00024,B-Alanine -> Acetyl-CoA
+45,6,Beta-Alanine Metabolism,M_45,45,Pyrimidine,CC0002,B-Alanine,C00099,Pyrimidine -> B-Alanine
+46,7,Propionyl-CoA Metabolism,M_46,46,Propanoyl-CoA,C00100,Succinate,C00042,Propanoyl-CoA -> Succinate
+47,7,Propionyl-CoA Metabolism,M_47,47,Propanoyl-CoA,C00100,Acetyl-CoA,C00024,Propanoyl-CoA -> Acetyl-CoA
+48,8,Glutamate Metabolism,M_48,48,Glutamate,C00025,Glutamine,C00064,Glutamate -> Glutamine
+49,8,Glutamate Metabolism,M_49,49,Glutamate,C00025,GABA,C00334,Glutamate -> GABA
+50,8,Glutamate Metabolism,M_50,50,GABA,C00334,Succinate,C00042,GABA -> Succinate
+51,8,Glutamate Metabolism,M_51,51,Glutamate,C00025,2OG,C00026,Glutamate -> 2OG
+52,8,Glutamate Metabolism,M_52,52,Histidine,C00135,glutamate,C00025,Histidine -> glutamate
+53,9,Leucine + Valine + Isoleucine,M_53,53,Leucine,C00123,Acetyl-CoA,C00024,Leucine -> Acetyl-CoA
+54,9,Leucine + Valine + Isoleucine,M_54,54,Valine,C00183,Succinyl-CoA,C00091,Valine -> Succinyl-CoA
+55,9,Leucine + Valine + Isoleucine,M_55,55,Isoleucine,C00407,Succinyl-CoA,C00091,Isoleucine -> Succinyl-CoA
+56,9,Leucine + Valine + Isoleucine,M_56,56,Isoleucine,C00407,Acetyl-CoA,C00024,Isoleucine -> Acetyl-CoA
+57,9,Leucine + Valine + Isoleucine,M_57,57,Tyrosine,C00082,Fumarate,C00122,Tyrosine -> Fumarate
+58,9,Leucine + Valine + Isoleucine,M_58,58,Tyrosine,C00082,Tyrosine-OUT,C00000,Tyrosine -> Tyrosine-OUT
+59,9,Leucine + Valine + Isoleucine,M_59,59,Phenylalanine,C00079,Tyrosine,C00082,Phenylalanine -> Tyrosine
+60,9,Leucine + Valine + Isoleucine,M_60,60,lysine,C00047,Acetyl-CoA,C00024,lysine -> Acetyl-CoA
+61,10,Urea Cycle,M_61,61,Putrescine,C00134,GABA,C00334,Putrescine -> GABA
+62,10,Urea Cycle,M_62,62,Ornithine,C00077,Putrescine,C00134,Ornithine -> Putrescine
+63,10,Urea Cycle,M_63,63,Arginine,C00062,Ornithine,C00077,Arginine -> Ornithine
+64,10,Urea Cycle,M_64,64,Arginine,C00062,Putrescine,C00134,Arginine -> Putrescine
+65,10,Urea Cycle,M_65,65,Argininosuccinate,C03406,Arginine + Fumarate,C00062+C00122,Argininosuccinate -> Arginine + Fumarate
+66,10,Urea Cycle,M_66,66,Citruline + Aspartate,C00327+C00049,Argininosuccinate,C03406,Citruline + Aspartate -> Argininosuccinate
+67,10,Urea Cycle,M_67,67,Ornithine,C00077,Proline,C00148,Ornithine -> Proline
+68,10,Urea Cycle,M_68,68,Proline,C00148,Glyoxylate + pyruvate,C00048+C00022,Proline -> Glyoxylate + pyruvate
+69,11,Spermine Metabolism,M_69,69,Putresine,C00134,Spermine,C00750,Putresine -> Spermine
+70,11,Spermine Metabolism,M_70,70,Methionine,C00073,Spermine,C00750,Methionine -> Spermine
+71,12,Transporters,M_71,71,Glucose_in,C00000,Glucose,C00267,Glucose_in -> Glucose
+72,12,Transporters,M_72,72,Acetyl-CoA_in,C00000,Acetyl-CoA,C00024,Acetyl-CoA_in -> Acetyl-CoA
+73,12,Transporters,M_73,73,Citrate_in,C00000,Citrate,C00158,Citrate_in -> Citrate
+74,12,Transporters,M_74,74,2OG_in,C00000,2OG,C00026,2OG_in -> 2OG
+75,12,Transporters,M_75,75,Succinate_in,C00000,Succinate,C00042,Succinate_in -> Succinate
+76,12,Transporters,M_76,76,Malate_in,C00000,Malate,C00149,Malate_in -> Malate
+77,12,Transporters,M_77,77,Oxaloacetate_in,C00000,Oxaloacetate,C00036,Oxaloacetate_in -> Oxaloacetate
+78,12,Transporters,M_78,78,Lactate,C00256,Lactate_out,C00000,Lactate -> Lactate_out
+79,12,Transporters,M_79,79,serine_in,C00000,serine,C00065,serine_in -> serine
+80,12,Transporters,M_80,80,Cysteine_in,C00000,Cysteine,C00097,Cysteine_in -> Cysteine
+81,12,Transporters,M_81,81,Glycine_in,C00000,Glycine,C00037,Glycine_in -> Glycine
+82,12,Transporters,M_83,83,Choline_in,C00000,Choline,C00114,Choline_in -> Choline
+83,12,Transporters,M_84,84,Threonine_in,C00000,Threonine,C00188,Threonine_in -> Threonine
+84,12,Transporters,M_85,85,Aspartate_in,C00000,Aspartate,C00049,Aspartate_in -> Aspartate
+85,12,Transporters,M_87,87,Pyrimidine_in,C00000,Pyrimidine,CC0002,Pyrimidine_in -> Pyrimidine
+86,12,Transporters,M_88,88,Histidine_in,C00000,Histidine,C00135,Histidine_in -> Histidine
+87,12,Transporters,M_89,89,B-Alanine_in,C00000,B-Alanine,C00099,B-Alanine_in -> B-Alanine
+88,12,Transporters,M_90,90,Propanoyl-CoA_in,C00000,Propanoyl-CoA,C00100,Propanoyl-CoA_in -> Propanoyl-CoA
+89,12,Transporters,M_91,91,glutamate_in,C00000,glutamate,C00025,glutamate_in -> glutamate
+90,12,Transporters,M_92,92,Glutamine_in,C00000,Glutamine,C00064,Glutamine_in -> Glutamine
+91,12,Transporters,M_93,93,GABA_in,C00000,GABA,C00334,GABA_in -> GABA
+92,12,Transporters,M_94,94,Tyrosine_in,C00000,Tyrosine,C00082,Tyrosine_in -> Tyrosine
+93,12,Transporters,M_95,95,phenylalanine_in,C00000,phenylalanine,C00079,phenylalanine_in -> phenylalanine
+94,12,Transporters,M_96,96,Valine_in,C00000,Valine,C00183,Valine_in -> Valine
+95,12,Transporters,M_97,97,Isoleucine_in,C00000,Isoleucine,C00407,Isoleucine_in -> Isoleucine
+96,12,Transporters,M_98,98,Leucine_in,C00000,Leucine,C00123,Leucine_in -> Leucine
+97,12,Transporters,M_99,99,Lysine_in,C00000,Lysine,C00047,Lysine_in -> Lysine
+98,12,Transporters,M_100,100,Arginine,C00000,Arginine,C00062,Arginine -> Arginine
+99,12,Transporters,M_101,101,Citrulline_in,C00000,Citrulline,C00327,Citrulline_in -> Citrulline
+100,12,Transporters,M_102,102,Ornithine_in,C00000,Ornithine,C00077,Ornithine_in -> Ornithine
+101,12,Transporters,M_103,103,Proline_in,C00000,Proline,C00148,Proline_in -> Proline
+102,12,Transporters,M_105,105,Fatty Acid_in,C00000,Fatty Acid,CC0001,Fatty Acid_in -> Fatty Acid
+103,13,Hyaluronic acid synthesis,M_106,106,Glucose,C00267,Glucose-6-phosphate,C00668,Glucose -> Glucose-6-phosphate
+104,13,Hyaluronic acid synthesis,M_107,107,Glucose-6-phosphate,C00668,UDP-N-acetylglucosamine,C00043,Glucose-6-phosphate -> UDP-N-acetylglucosamine
+105,13,Hyaluronic acid synthesis,M_108,108,Glucose-6-phosphate,C00668,Glucose-1-phosphate,C00103,Glucose-6-phosphate -> Glucose-1-phosphate
+106,13,Hyaluronic acid synthesis,M_109,109,Glucose-1-phosphate,C00103,UDP-glucuronic acid,C00167,Glucose-1-phosphate -> UDP-glucuronic acid
+107,13,Hyaluronic acid synthesis,M_110,110,UDP-glucuronic acid+UDP-N-acetylglucosamine,C00167+C00043,Hyaluronic acid,C00518,UDP-glucuronic acid+UDP-N-acetylglucosamine -> Hyaluronic acid
+108,14,Glycogen synthesis,M_111,111,Glucose-1-phosphate,C00103,Glycogen,C00182,Glucose-1-phosphate -> Glycogen
+109,15,Glycosaminoglycan synthesis,M_112,112,UDP-N-acetylglucosamine,C00043,CMP-N-acetylneuraminate,C00128,UDP-N-acetylglucosamine -> CMP-N-acetylneuraminate
+110,16,N-linked glycan synthesis,M_113,113,Acetyl-CoA,C00024,"(E,E)-Farnesyl-PP",C00448,"Acetyl-CoA -> (E,E)-Farnesyl-PP"
+111,16,N-linked glycan synthesis,M_114,114,"(E,E)-Farnesyl-PP",C00448,Geranylgeranyl-PP,C00353,"(E,E)-Farnesyl-PP -> Geranylgeranyl-PP"
+112,16,N-linked glycan synthesis,M_115,115,"(E,E)-Farnesyl-PP",C00448,Farnesal,C03461,"(E,E)-Farnesyl-PP -> Farnesal"
+113,16,N-linked glycan synthesis,M_116,116,"(E,E)-Farnesyl-PP",C00448,Ubiquinone,C00399,"(E,E)-Farnesyl-PP -> Ubiquinone"
+114,16,N-linked glycan synthesis,M_117,117,"(E,E)-Farnesyl-PP",C00448,Dolichyl phosphate,C00110,"(E,E)-Farnesyl-PP -> Dolichyl phosphate"
+115,16,N-linked glycan synthesis,M_118,118,Dolichyl phosphate,C00110,Dolichyl phosphate D-mannose,C03862,Dolichyl phosphate -> Dolichyl phosphate D-mannose
+116,16,N-linked glycan synthesis,M_119,119,Dolichyl phosphate,C00110,(GlcNAc)4 (Man)3 (Asn)1,G00015,Dolichyl phosphate -> (GlcNAc)4 (Man)3 (Asn)1
+117,16,N-linked glycan synthesis,M_120,120,(Glc)3 (GlcNAc)2 (Man)9 (PP-Dol)1+Protein asparagine,G00008+C03021,(Glc)3 (GlcNAc)2 (Man)9 (Asn)1,G00009,(Glc)3 (GlcNAc)2 (Man)9 (PP-Dol)1+Protein asparagine -> (Glc)3 (GlcNAc)2 (Man)9 (Asn)1
+118,16,N-linked glycan synthesis,M_121,121,(Glc)3 (GlcNAc)2 (Man)9 (Asn)1,G00009,(GlcNAc)4 (Man)3 (Asn)1,G00015,(Glc)3 (GlcNAc)2 (Man)9 (Asn)1 -> (GlcNAc)4 (Man)3 (Asn)1
+119,16,N-linked glycan synthesis,M_122,122,(GlcNAc)4 (Man)3 (Asn)1,G00015,(Gal)2 (GlcNAc)4 (LFuc)1 (Man)3 (Neu5Ac)2 (Asn)1,G00018,(GlcNAc)4 (Man)3 (Asn)1 -> (Gal)2 (GlcNAc)4 (LFuc)1 (Man)3 (Neu5Ac)2 (Asn)1
+120,16,N-linked glycan synthesis,M_123,123,(GlcNAc)4 (Man)3 (Asn)1,G00015,(GlcNAc)7 (Man)3 (Asn)1,G00022,(GlcNAc)4 (Man)3 (Asn)1 -> (GlcNAc)7 (Man)3 (Asn)1
+121,16,N-linked glycan synthesis,M_124,124,(GlcNAc)4 (Man)3 (Asn)1,G00015,(GlcNAc)5 (Man)3 (Asn)1,G00019,(GlcNAc)4 (Man)3 (Asn)1 -> (GlcNAc)5 (Man)3 (Asn)1
+122,17,O-linked glycan synthesis,M_125,125,Dolichyl phosphate D-mannose+Protein serine,C03862+C02189,(Gal)1 (GlcNAc)1 (Man)1 (Ser/Thr)1,G13084,Dolichyl phosphate D-mannose+Protein serine -> (Gal)1 (GlcNAc)1 (Man)1 (Ser/Thr)1
+123,17,O-linked glycan synthesis,M_126,126,(Gal)1 (GlcNAc)1 (Man)1 (Ser/Thr)1,G13084,(Gal)1 (GlcNAc)1 (Man)1 (Neu5Ac)1 (Ser/Thr)1,G13085,(Gal)1 (GlcNAc)1 (Man)1 (Ser/Thr)1 -> (Gal)1 (GlcNAc)1 (Man)1 (Neu5Ac)1 (Ser/Thr)1
+124,17,O-linked glycan synthesis,M_127,127,(Gal)1 (GlcNAc)1 (Man)1 (Ser/Thr)1,G13084,(Gal)1 (GlcA)1 (GlcNAc)1 (Man)1 (S)1 (Ser/Thr)1,G13088,(Gal)1 (GlcNAc)1 (Man)1 (Ser/Thr)1 -> (Gal)1 (GlcA)1 (GlcNAc)1 (Man)1 (S)1 (Ser/Thr)1
+125,17,O-linked glycan synthesis,M_128,128,(Gal)1 (GlcNAc)1 (Man)1 (Ser/Thr)1,G13084,(Gal)1 (GlcNAc)1 (LFuc)1 (Man)1 (Ser/Thr)1,G13100,(Gal)1 (GlcNAc)1 (Man)1 (Ser/Thr)1 -> (Gal)1 (GlcNAc)1 (LFuc)1 (Man)1 (Ser/Thr)1
+126,18,Sialic acid synthesis,M_129,129,Protein serine,C02189,(Gal)2 (GlcA)1 (Xyl)1 (Ser)1,G00157,Protein serine -> (Gal)2 (GlcA)1 (Xyl)1 (Ser)1
+127,18,Sialic acid synthesis,M_130,130,(Gal)2 (GlcA)1 (Xyl)1 (Ser)1,G00157,Chondroitin,C00401,(Gal)2 (GlcA)1 (Xyl)1 (Ser)1 -> Chondroitin
+128,18,Sialic acid synthesis,M_131,131,Chondroitin,C00401,Dermatan,C01490,Chondroitin -> Dermatan
+129,19,Glycan synthesis,M_132,132,(Gal)2 (GlcA)1 (Xyl)1 (Ser)1,G00157,(Gal)2 (GlcA)2 (GlcNAc)2 (Xyl)1 (Ser)1,G00164,(Gal)2 (GlcA)1 (Xyl)1 (Ser)1 -> (Gal)2 (GlcA)2 (GlcNAc)2 (Xyl)1 (Ser)1
+130,20,Purine synthesis,M_133,133,PRPP+Glutamine,C00119+C00064,IMP,C00130,PRPP+Glutamine -> IMP
+131,20,Purine synthesis,M_134,134,5-Phosphoribosylamine,C03090,AICAR,C04677,5-Phosphoribosylamine -> AICAR
+132,20,Purine synthesis,M_135,135,AICAR,C04677,IMP,C00130,AICAR -> IMP
+133,20,Purine synthesis,M_136,136,IMP,C00130,AMP,C00020,IMP -> AMP
+134,20,Purine synthesis,M_137,137,IMP,C00130,XMP,C00655,IMP -> XMP
+135,20,Purine synthesis,M_138,138,AMP,C00020,Deoxyadenosine,C00559,AMP -> Deoxyadenosine
+136,20,Purine synthesis,M_139,139,AMP,C00020,Adenine,C00147,AMP -> Adenine
+137,20,Purine synthesis,M_140,140,ADP,C00008,Deoxyadenosine,C00559,ADP -> Deoxyadenosine
+138,20,Purine synthesis,M_141,141,Deoxyadenosine,C00559,Adenine,C00147,Deoxyadenosine -> Adenine
+139,20,Purine synthesis,M_142,142,Deoxyadenosine,C00559,Hypoxanthine,C00262,Deoxyadenosine -> Hypoxanthine
+140,20,Purine synthesis,M_143,143,IMP,C00130,Hypoxanthine,C00262,IMP -> Hypoxanthine
+141,20,Purine synthesis,M_144,144,Hypoxanthine,C00262,Xanthine,C00385,Hypoxanthine -> Xanthine
+142,20,Purine synthesis,M_145,145,XMP,C00655,Xanthine,C00385,XMP -> Xanthine
+143,20,Purine synthesis,M_146,146,Xanthine,C00385,Uric acid,C00366,Xanthine -> Uric acid
+144,20,Purine synthesis,M_147,147,Xanthine,C00385,Guanine,C00242,Xanthine -> Guanine
+145,20,Purine synthesis,M_148,148,XMP,C00655,Guanine,C00242,XMP -> Guanine
+146,20,Purine synthesis,M_149,149,GMP,C00144,Guanine,C00242,GMP -> Guanine
+147,20,Purine synthesis,M_170,170,XMP,C00655,GMP,C00144,XMP -> GMP
+148,21,Pyrimidine synthesis,M_150,150,PRPP,C00119,UMP,C00105,PRPP -> UMP
+149,21,Pyrimidine synthesis,M_151,151,Orotidylic acid,C01103,UMP,C00105,Orotidylic acid -> UMP
+150,21,Pyrimidine synthesis,M_152,152,UMP,C00105,B-Alanine,C00099,UMP -> B-Alanine
+151,21,Pyrimidine synthesis,M_154,154,Uracil,C00106,B-Alanine,C00099,Uracil -> B-Alanine
+152,21,Pyrimidine synthesis,M_155,155,UTP,C00075,CDP,C00112,UTP -> CDP
+153,21,Pyrimidine synthesis,M_156,156,CDP,C00112,Cytidine,C00475,CDP -> Cytidine
+154,21,Pyrimidine synthesis,M_153,153,UMP,C00105,CDP,C00112,UMP -> CDP
+155,21,Pyrimidine synthesis,M_158,158,dCDP,C00705,Deoxycytidine,C00881,dCDP -> Deoxycytidine
+156,21,Pyrimidine synthesis,M_159,159,dCMP,C00239,Deoxycytidine,C00881,dCMP -> Deoxycytidine
+157,21,Pyrimidine synthesis,M_160,160,dCDP,C00705,dUMP,C00365,dCDP -> dUMP
+158,21,Pyrimidine synthesis,M_161,161,dCDP,C00705,dCTP,C00458,dCDP -> dCTP
+159,21,Pyrimidine synthesis,M_162,162,dUMP,C00365,Deoxyuridine,C00526,dUMP -> Deoxyuridine
+160,21,Pyrimidine synthesis,M_163,163,dUMP,C00365,dTMP,C00364,dUMP -> dTMP
+161,21,Pyrimidine synthesis,M_164,164,dTMP,C00364,Succinyl-CoA,C00091,dTMP -> Succinyl-CoA
+162,21,Pyrimidine synthesis,M_165,165,dTMP,C00364,dTTP,C00459,dTMP -> dTTP
+163,21,Pyrimidine synthesis,M_166,166,Thymine,C00178,Succinyl-CoA,C00091,Thymine -> Succinyl-CoA
+164,21,Pyrimidine synthesis,M_171,171,dCDP,C00705,dCMP,C00239,dCDP -> dCMP
+165,21,Pyrimidine synthesis,M_157,157,CDP,C00112,dCDP,C00705,CDP -> dCDP
+166,22,Steroid hormone synthesis,M_168,168,Cholesterol,C00187,Chenodeoxycholate,C02528,Cholesterol -> Chenodeoxycholate
+167,22,Steroid hormone synthesis,M_169,169,Cholesterol,C00187, Steroid_hormone,CC0003,Cholesterol ->  Steroid_hormone
+168,22,Steroid hormone synthesis,M_167,167,"(E,E)-Farnesyl-PP",C00448,Cholesterol,C00187,"(E,E)-Farnesyl-PP -> Cholesterol"
