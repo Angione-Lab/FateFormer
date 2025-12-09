@@ -101,24 +101,6 @@ pip install torch numpy pandas scikit-learn anndata scanpy tqdm
 
 - **Visualize results**: After `model_analysis.py` finishes, open `Plots.ipynb` to load metrics and artifacts from `analysis docs/metrics/` and generate plots and data summaries.
 
-## Data Format
-
-### Input Data
-
-The framework expects data in the following formats:
-
-- **RNA data**: AnnData object (`.h5ad`) with gene expression counts
-- **ATAC data**: AnnData object (`.h5ad`) with chromatin accessibility scores
-- **Flux data**: CSV file with metabolic reaction fluxes (rows = cells, columns = reactions)
-- **Clone information**: CSV file with clone IDs and cell fate labels
-
-### Required Metadata
-
-Each dataset should include:
-- `clone_id`: Clone identifier for pairing cells across modalities
-- `batch_no`: Batch information (0, 1, or 2)
-- `label`: Cell fate label ('reprogramming' or 'dead-end')
-
 ## Model Architecture
 
 ### SingleTransformer
