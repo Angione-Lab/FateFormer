@@ -97,7 +97,7 @@ pip install torch numpy pandas scikit-learn anndata scanpy tqdm
   ```bash
   python model_analysis.py
   ```
-  Adjust `EPOCHS`, `SELECTION_CRITERIA`, `OUTPUT_FOLDER`, `SEEDS`, or `BATCH_SIZE` by editing the constants in `if __name__ == "__main__":`.
+  Adjust `EPOCHS`, `SELECTION_CRITERIA`, `OUTPUT_FOLDER`, `SEEDS`, or `BATCH_SIZE` by editing the constants in the script.
 
 - **Visualize results**: After `model_analysis.py` finishes, open `Plots.ipynb` to load metrics and artifacts from `analysis docs/metrics/` and generate plots and data summaries.
 
