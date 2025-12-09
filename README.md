@@ -24,6 +24,8 @@ The framework supports both single-modality and multimodal prediction tasks, wit
 
 ```
 CellFatePrediction/
+├── datasets/               # Downloaded data from Zenodo (see Usage)
+├── analysis docs/metrics/  # Default output root for analysis script
 ├── data/                    # Data loading and preprocessing modules
 │   ├── load_data.py        # Functions to load RNA, ATAC, and Flux data
 │   ├── preprocess_data.py  # Data preprocessing and filtering
@@ -76,6 +78,29 @@ cd CellFatePrediction
 pip install torch numpy pandas scikit-learn anndata scanpy tqdm
 ```
 
+## Usage
+
+- **Download data**: Fetch the dataset from https://zenodo.org/17864926 and place all downloaded files inside `datasets/`. Expected files include `clones.csv`, `all_atac_d3_motif.h5ad`, `flux_labelled.csv`, `all_rna_d3_labelled.h5ad` and `all_rna_d3_unlabelled.h5ad`.
+
+- **Train or finetune models (notebooks)**: Each notebook loads data, supports self-supervised pretraining (MLM) and supervised finetuning (CLS) for its modality and evaluation:
+  - `Model_RNA.ipynb`
+  - `Model_ATAC.ipynb`
+  - `Model_Flux.ipynb`
+  - `Model_Multimodal.ipynb`
+
+- **Comprehensive analysis script**: `model_analysis.py` runs 4 models (RNA, ATAC, Flux, Multimodal) with 5-fold cross-validation across different seeds (100 runs total). It uses MLM checkpoints from `config.py` and saves outputs under `analysis docs/metrics/` by default:
+  - `models/`: trained weights per fold/seed/model
+  - `metrics/`: `final_results.csv`, `comprehensive_epoch_results.csv`, `summary_statistics.csv`
+  - `fold_results/`: pickled per-fold details
+  
+  Run with defaults:
+  ```bash
+  python model_analysis.py
+  ```
+  Adjust `EPOCHS`, `SELECTION_CRITERIA`, `OUTPUT_FOLDER`, `SEEDS`, or `BATCH_SIZE` by editing the constants in `if __name__ == "__main__":`.
+
+- **Visualize results**: After `model_analysis.py` finishes, open `Plots.ipynb` to load metrics and artifacts from `analysis docs/metrics/` and generate plots and data summaries.
+
 ## Data Format
 
 ### Input Data
@@ -121,7 +146,6 @@ The multimodal model:
 - **Classification Loss**: 
   - Binary cross-entropy (BCE)
   - Weighted BCE (handles class imbalance)
-  - Focal loss (handles hard examples)
 
 ### Evaluation Metrics
 

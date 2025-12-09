@@ -198,7 +198,7 @@ def load_flux(data_path, prefix='flux_un', clone_info=False, clone_path=None, sc
     if flux_metadata_path is not None:
         md = pd.read_csv(flux_metadata_path)[['X', 'rxnName']]
     else:
-        md = pd.read_csv("data/datasets/flux/metabolic_model_metadata.csv")[['X', 'rxnName']]
+        md = pd.read_csv("datasets/metabolic_model_metadata.csv")[['X', 'rxnName']]
     dict_rename = {}
     for col in adata_Flux_labelled.columns:
         reaction = md[md['X'] == col]['rxnName'].str.replace(" -> ", "→").values
@@ -229,12 +229,12 @@ def load_processed_rna(verbose=True, return_raw=True, return_all_features=False)
     if verbose:
          print('Loading RNA data...')
     # Load RNA data labelled
-    adata_RNA_labelled = load_rna("data/datasets/rna/all_rna_d3_labelled.h5ad",
+    adata_RNA_labelled = load_rna("datasets/all_rna_d3_labelled.h5ad",
                                     return_raw=True,
                                     clone_info=True,
-                                    clone_path="data/datasets/clone/clones.csv")
+                                    clone_path="datasets/clones.csv")
     # Load RNA data unlabelled
-    adata_RNA_unlabelled = load_rna("data/datasets/rna/all_rna_d3_unlabelled.h5ad", 
+    adata_RNA_unlabelled = load_rna("datasets/all_rna_d3_unlabelled.h5ad", 
                                     return_raw=True, 
                                     clone_info=False)
    
@@ -263,15 +263,6 @@ def load_processed_rna(verbose=True, return_raw=True, return_all_features=False)
     if return_all_features:
         return adata_RNA_labelled, adata_RNA_unlabelled, deg_list, adata_RNA_labelled_all
     return adata_RNA_labelled, adata_RNA_unlabelled, deg_list
-
-if __name__ == '__main__':
-    adata_ATAC_labelled, adata_ATAC_unlabelled = load_atac("data/datasets/atac/all_atac_d3_motif.h5ad", 
-                                                          clone_info=True, 
-                                                          clone_path="data/datasets/clone/clones.csv")
-    print(adata_ATAC_labelled.obs.columns, adata_ATAC_labelled.obs.shape, adata_ATAC_labelled.obs.index[:10])
-    print(adata_ATAC_unlabelled.obs.columns, adata_ATAC_unlabelled.obs.shape, adata_ATAC_unlabelled.obs.index[:10])
-    print("Data loaded successfully!")
-
 
 
 

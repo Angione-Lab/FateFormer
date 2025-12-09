@@ -20,21 +20,22 @@ import torch
 from pathlib import Path
 from tqdm import tqdm
 from datetime import datetime
-
+from sklearn.model_selection import StratifiedKFold
 from utils.helpers import get_max
 from train import weighted_bce_loss
 from data import load_data, create_dataset
-
+from sklearn.metrics import roc_auc_score, precision_score, recall_score, f1_score, accuracy_score, confusion_matrix
+from models.transformers import SingleTransformer
+from utils.helpers import create_multimodal_model
+import config
 
 def setup_analysis_folder(output_folder="analysis_results"):
     """Create analysis results folder structure."""
     script_dir = Path(__file__).parent
     results_dir = os.path.join(script_dir, output_folder)
     
-    # Create main results directory
     os.makedirs(results_dir, exist_ok=True)
     
-    # Create subdirectories
     subdirs = ["models", "metrics", "fold_results"]
     for subdir in subdirs:
         os.makedirs(os.path.join(results_dir, subdir), exist_ok=True)
@@ -47,19 +48,16 @@ def load_all_data():
     
     # Load RNA data
     try:
-        with open('objects/rna_labelled.pkl', 'rb') as f:
-            adata_RNA_labelled = pickle.load(f)
-        with open('objects/rna_unlabelled.pkl', 'rb') as f:
-            adata_RNA_unlabelled = pickle.load(f)
-        with open('objects/degs.pkl', 'rb') as f:
-            df_degs = pickle.load(f)
+        adata_RNA_labelled, adata_RNA_unlabelled, df_degs, _ = load_data.load_processed_rna(verbose=True, return_raw=True, return_all_features=True)
+
+        df_degs = df_degs.rename(columns={"gene": "feature", "mean_exp_de": "mean_de", "mean_exp_re": "mean_re", "std_exp_de": "std_de", "std_exp_re": "std_re"})
+        df_degs["mean_diff"] = df_degs["mean_de"] - df_degs["mean_re"]
+        rna_vocab_size = int(get_max([adata_RNA_labelled, adata_RNA_unlabelled])) + 2
+        del adata_RNA_unlabelled
     except FileNotFoundError as e:
         print(f"Error loading RNA data: {e}")
         raise
-    rna_vocab_size = int(get_max([adata_RNA_labelled, adata_RNA_unlabelled])) + 2
-    del adata_RNA_unlabelled
     
-    # Convert RNA AnnData to PyTorch dataset for single modality training
     rna_dataset, _, _ = create_dataset.get_cls_dataset(
         data=adata_RNA_labelled,
         batch_key="batch_no",
@@ -71,12 +69,11 @@ def load_all_data():
     # Load ATAC data
     try:
         adata_ATAC_labelled, _ = load_data.load_atac(
-            data_path="data/datasets/atac/all_atac_d3_motif.h5ad",
+            data_path="datasets/all_atac_d3_motif.h5ad",
             clone_info=True, 
-            clone_path="data/datasets/clone/clones.csv"
+            clone_path="datasets/clones.csv"
         )
         
-        # Convert ATAC AnnData to PyTorch dataset for single modality training
         atac_dataset, _, _ = create_dataset.get_cls_dataset(
             data=adata_ATAC_labelled,
             batch_key="batch_no",
@@ -91,9 +88,9 @@ def load_all_data():
     
     # Load Flux data
     try:
-        fluxes = load_data.load_flux("data/datasets/flux/flux_labelled_11nov.csv", prefix="flux_un",
+        fluxes = load_data.load_flux("datasets/flux_labelled.csv", prefix="flux_un",
                                                                         clone_info=True, 
-                                                                        clone_path="data/datasets/clone/clones.csv", 
+                                                                        clone_path="datasets/clones.csv", 
                                                                         scale=True)
         adata_Flux_labelled, _, bi_labelled, _, flux_labels, pcts_flux = fluxes
         
@@ -110,15 +107,20 @@ def load_all_data():
     except FileNotFoundError as e:
         print(f"Error loading Flux data: {e}")
         raise
+
     # Load multimodal dataset
     try:
-        with open('objects/mutlimodal_dataset.pkl', 'rb') as f:
-            md = pickle.load(f)
-        X, y_label, b, df_indices, pcts = md['X'], md['y_label'], md['b'], md['df_indices'], md['pcts']
-        
+        X, y_label, b, df_indices, pcts = create_dataset.get_pair_modalities(adata_RNA_labelled, 
+                                                               adata_ATAC_labelled, 
+                                                               adata_Flux_labelled, 
+                                                               include_unused_atacs=True,
+                                                               seed=42)
+
         feature_names = list(X[0].columns) + ['batch_rna'] + list(X[1].columns) + ['batch_atac'] + list(X[2].columns) + ['batch_flux']
-        y_number = torch.tensor([{'reprogramming':1, 'dead-end':0}[i] for i in list(y_label)], dtype=torch.float32)
-        multimodal_dataset = create_dataset.MultiModalDataset(X, b, y_number, df_indices, pcts, y_label)
+
+        y_number = torch.tensor([{'reprogramming':1, 'dead-end':0}[i] for i in list(y_label)], 
+                                dtype=torch.float32)
+        multimodal_dataset = create_dataset.MultiModalDataset(X, b, y_number)
     except FileNotFoundError as e:
         print(f"Error loading multimodal data: {e}")
         raise
@@ -126,13 +128,13 @@ def load_all_data():
     print("Data loading completed successfully.")
     
     return {
-        'rna_labelled': rna_dataset,  # Now a PyTorch dataset
-        'rna_anndata': adata_RNA_labelled,  # Keep original AnnData for reference
-        'atac_labelled': atac_dataset,  # Now a PyTorch dataset  
-        'atac_anndata': adata_ATAC_labelled,  # Keep original AnnData for reference
+        'rna_labelled': rna_dataset,  
+        'rna_anndata': adata_RNA_labelled, 
+        'atac_labelled': atac_dataset,  
+        'atac_anndata': adata_ATAC_labelled, 
         'multimodal_dataset': multimodal_dataset,
-        'flux_labelled': flux_dataset,  # Now a PyTorch dataset
-        'flux_dataframe': adata_Flux_labelled,  # Keep original DataFrame for shape info
+        'flux_labelled': flux_dataset,  
+        'flux_dataframe': adata_Flux_labelled,  
         'feature_names': feature_names,
         'rna_vocab_size': rna_vocab_size,
     }
@@ -151,8 +153,6 @@ def setup_model_configs(data_dict):
         "dropout_rate": 0.1,
     }
     
-    # FIX: Get actual data shapes from datasets instead of non-existent 'X' key
-    # Get sample data to determine shapes
     multimodal_sample = data_dict['multimodal_dataset'][0][0]  # (rna, atac, flux)
     rna_sample, atac_sample, flux_sample = multimodal_sample
     
@@ -532,8 +532,7 @@ def get_valid_indics(model_name, data_dict, seed=42):
     For multimodal: 6 classes (3 sample types × 2 labels)
     For other models: 4 classes (2 sample types × 2 labels)
     """
-    from sklearn.model_selection import StratifiedKFold
-    import numpy as np
+
     
     # Create compound stratification labels
     compound_labels, actual_labels, sample_type_indices = create_compound_stratification_labels(model_name, data_dict)
@@ -725,11 +724,7 @@ def train_single_fold(model_name, model_config, seed, train_loader, val_loader,
     """
     Train a single fold of a model.
     """
-    import torch
-    import torch.nn as nn
-    from sklearn.metrics import roc_auc_score, precision_score, recall_score, f1_score, accuracy_score, confusion_matrix
-    from models.transformers import SingleTransformer
-    from utils.helpers import create_multimodal_model
+
     
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
@@ -1035,19 +1030,19 @@ def run_comprehensive_analysis(epochs=10,
             'config': configs['ATAC'],
             'dataset': data_dict['atac_labelled'],
             'use_mlm': True,
-            'mlm_path': "ckp/MLM/MLM_ATAC_ValLoss0.0019.pth"
+            'mlm_path': config.MLM_ATAC_CKP
         },
         'Flux': {
             'config': configs['Flux'],
             'dataset': data_dict['flux_labelled'],
             'use_mlm': True,
-            'mlm_path': "ckp/MLM/MLM_Flux_ValLoss0.1001.pth"
+            'mlm_path': config.MLM_FLUX_CKP
         },        
         'RNA': {
             'config': configs['RNA'],
             'dataset': data_dict['rna_labelled'],
             'use_mlm': True,
-            'mlm_path': "ckp/MLM/MLM_RNA_ValLoss0.4277.pth"
+            'mlm_path': config.MLM_RNA_CKP
         },
         'Multi': {
             'config': configs['Multi'],
@@ -1199,7 +1194,7 @@ def run_comprehensive_analysis(epochs=10,
 if __name__ == "__main__":
     EPOCHS = 15
     SELECTION_CRITERIA = 'all_samples'  # 'all_samples' or 'common_samples'
-    OUTPUT_FOLDER = "analysis_results_all_stratify_multi"
+    OUTPUT_FOLDER = "analysis docs/metrics"
     SEEDS = [0, 6, 42, 123, 1000]
     BATCH_SIZE = 32
     
