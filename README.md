@@ -1,4 +1,4 @@
-# Cell Fate Prediction
+# FateFormer for Cell Fate Prediction
 
 A deep learning framework for predicting cell fate using multimodal single-cell data (RNA-seq, ATAC-seq, and metabolic flux). This project employs transformer-based architectures with masked language modeling (MLM) pretraining to predict whether cells will undergo reprogramming or reach a dead-end state.
 
