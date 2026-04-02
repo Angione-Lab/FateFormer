@@ -12,7 +12,6 @@ saves metrics from the best epoch and stores results in CSV format.
 import os
 import warnings
 warnings.filterwarnings("ignore")
-
 import numpy as np
 import pandas as pd
 import pickle

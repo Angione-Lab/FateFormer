@@ -246,7 +246,6 @@ def _get_modality_info(dataset, indices):
     
     return modalities
 
-
 def _add_obs_metadata(sample_info, obs):
     """Add metadata from AnnData obs to sample_info dictionary."""
     metadata_fields = [
@@ -264,7 +263,6 @@ def _add_obs_metadata(sample_info, obs):
                     sample_info[field] = value
                 else:
                     sample_info[field] = str(value)
-
 
 def summarize_by_modality(df_samples):
     """
@@ -292,7 +290,6 @@ def summarize_by_modality(df_samples):
     summary = summary.sort_values('n_samples', ascending=False)
     
     return summary
-
 
 def summarize_by_fold(df_samples):
     """

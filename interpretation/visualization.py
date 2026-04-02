@@ -118,7 +118,6 @@ def plot_roc_auc_curve(val_preds, val_labels, m_type, aggregate=False):
         f.savefig(f'./figures/roc_curve_{m_type}.pdf', bbox_inches='tight')
         plt.show()
 
-
 def plot_auc_boxplot_comparison(fold_results1, fold_results2, title="AUC Comparison"):
     """Plot AUC box comparison between two models."""
 
@@ -233,7 +232,6 @@ def plot_data_distribution(adata_RNA, adata_ATAC, adata_Flux, title="Data Distri
     fig.savefig('./figures/data_distribution.pdf', bbox_inches='tight')
     plt.tight_layout()
     plt.show()
-
 
 def plot_att_weights(all_attention, dead_end_attention, reprogramming_attention, 
                     feature_names=None, print_top_features=False, top_n=5, scale_weights=False, fix_scale=False,

@@ -36,7 +36,6 @@ def get_mlm_loaders(train_data, val_data, batch_size=32, batch_key='batch_no', d
 
     return mlm_train_loader, mlm_val_loader
 
-
 def get_cls_dataset(data, batch_key='batch_no', label_key='label', 
                     pct_key='pct', filter_pcts=50.0, 
                     data_dtype=torch.float32):

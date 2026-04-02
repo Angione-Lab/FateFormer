@@ -21,6 +21,6 @@ def compute_similarity_matrix(model, dataset, device):
     
     # Calculate cosine similarity for all pairs of tokens using matrix multiplication
     similarity_matrix = torch.mm(mean_token_embeddings, mean_token_embeddings.T).cpu().numpy()
-    
+
     
     return similarity_matrix  # Convert to numpy array if needed

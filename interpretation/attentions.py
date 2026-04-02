@@ -24,7 +24,6 @@ def filter_idx(dataset, idx):
     
     return filtered_idx
 
-
 def analyze_cls_attention(id, fold_results, dataset, model_config, device, indices, 
                           average_heads=True, return_flow_attention=False):
     """
@@ -118,7 +117,6 @@ def analyze_cls_attention(id, fold_results, dataset, model_config, device, indic
             num_layers = num_layers_cls if key == 'cls' else num_layers_mlm
             att_w[key] = [torch.cat([layer[i] for layer in key_all_attentions], axis=0) for i in range(num_layers)]
     return att_w
-
 
 def compute_attention_rollout(attention_weights):
     """

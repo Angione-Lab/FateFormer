@@ -5,7 +5,6 @@ from sklearn.metrics import confusion_matrix
 from models import SingleTransformer
 from utils.helpers import create_multimodal_model
 
-
 def compute_confusion_matrices(id, model_config, fold_results, dataset, device):
     """
     Get confusion matrices for each fold and aggregate them.

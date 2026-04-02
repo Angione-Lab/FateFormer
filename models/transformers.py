@@ -217,7 +217,7 @@ class SingleTransformer(nn.Module):
         latent_space = torch.cat(latent_space_list, dim=0)
         preds = torch.cat(preds_list, dim=0)
         return latent_space, preds
-    
+   
 
 class MultiModalTransformer(nn.Module):
     def __init__(self, rna_model, atac_model, flux_model, d_model, n_heads_cls, d_ff_cls, dropout_rate=0.0):
@@ -328,7 +328,6 @@ class MultiModalTransformer(nn.Module):
         preds = torch.cat(preds_list, dim=0)
         return latent_space, preds
     
-
 if __name__=='__main__':
     model = SingleTransformer(model_type='ATAC', vocab_size=1, seq_len=883, n_encoder_layers=2, n_heads=2, n_batches=3, d_tokens=508, d_ff=128, d_batch=4)
     x = torch.rand(32, 883)

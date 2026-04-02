@@ -15,7 +15,6 @@ from collections import defaultdict
 from models import SingleTransformer
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score, confusion_matrix
 
-
 def weighted_bce_loss(preds, targets, pos_weight):
     weights = torch.where(targets == 1, pos_weight+0.3, 1)  # Assign pos_weight to positive examples
     loss = F.binary_cross_entropy(preds, targets, weight=weights, reduction='mean')

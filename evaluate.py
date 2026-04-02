@@ -27,7 +27,6 @@ def evaluate_mlm(model, loader, mask_token=-1, mse_based=False, device='cpu'):
     avg_loss = total_loss / total_batches
     return avg_loss
 
-
 def evaluate_cls_cv(id, fold_results, model_config, dataset, device='cpu'):
      """
      Cross Evaluate the classifier on the validation sets.
