@@ -33,7 +33,6 @@ def plot_conf_matrix_mlm_vs_nomlm(cms_mlm, cms_nomlm, m_type, only_agg=True, sup
         plt.ylabel('Actual')
         plt.title('Confusion Matrix - No MLM (Aggregated)')
 
-        f.savefig(f'./figures/confusion_matrices_{m_type}.pdf', bbox_inches='tight')
         plt.tight_layout() 
         plt.show()
     
@@ -58,7 +57,6 @@ def plot_conf_matrix_mlm_vs_nomlm(cms_mlm, cms_nomlm, m_type, only_agg=True, sup
             plt.ylabel('Actual')
             plt.title(f'Confusion Matrix - No MLM (Fold {i+1})')
 
-        f.savefig(f'./figures/confusion_matrices_folds_{m_type}.pdf', bbox_inches='tight')
         plt.tight_layout(rect=[0, 0, 1, 0.96])  
         plt.show()
 
@@ -78,7 +76,6 @@ def plot_training_vs_validation_losses(train_losses, val_losses, title="Losses")
     plt.ylabel('Validation Loss')
     plt.title('Validation Loss')
 
-    f.savefig('./figures/losses.pdf', bbox_inches='tight')
     plt.tight_layout()
     plt.show()
 
@@ -98,7 +95,6 @@ def plot_roc_auc_curve(val_preds, val_labels, m_type, aggregate=False):
         plt.ylabel('True Positive Rate')
         plt.title('ROC Curve (Aggregated)')
         plt.legend()
-        f.savefig(f'./figures/roc_curve_{m_type}.pdf', bbox_inches='tight')
         plt.show()
     
     else:
@@ -115,7 +111,6 @@ def plot_roc_auc_curve(val_preds, val_labels, m_type, aggregate=False):
         plt.ylabel('True Positive Rate')
         plt.title('ROC Curve (Each Fold)')
         plt.legend()
-        f.savefig(f'./figures/roc_curve_{m_type}.pdf', bbox_inches='tight')
         plt.show()
 
 def plot_auc_boxplot_comparison(fold_results1, fold_results2, title="AUC Comparison"):
@@ -155,7 +150,6 @@ def plot_auc_boxplot_comparison(fold_results1, fold_results2, title="AUC Compari
     plt.ylabel('AUC')
     plt.ylim(0.5, 1)
 
-    f.savefig('./figures/auc_comparison.pdf', bbox_inches='tight')
     plt.tight_layout()
     plt.show()
 
@@ -180,7 +174,6 @@ def plot_loss_comparison_mlm_vs_nomlm(fold_results1, fold_results2, title="Loss 
         plt.ylabel('Loss')
         plt.title(title)
         plt.legend(loc='upper right', bbox_to_anchor=(1.3, 1))
-        f.savefig('./figures/loss_comparison.pdf', bbox_inches='tight')
         plt.show()
 
 def plot_fold_losses(fold_results, title="Losses"):
@@ -200,7 +193,6 @@ def plot_fold_losses(fold_results, title="Losses"):
     plt.ylabel('Loss')
     plt.title(title)
     plt.legend(loc='upper right', bbox_to_anchor=(1.3, 1))
-    f.savefig('./figures/fold_losses.pdf', bbox_inches='tight')
     plt.show()
 
 def plot_data_distribution(adata_RNA, adata_ATAC, adata_Flux, title="Data Distribution"):
@@ -229,7 +221,6 @@ def plot_data_distribution(adata_RNA, adata_ATAC, adata_Flux, title="Data Distri
     axes[2].set_xlabel('Flux value')
     axes[2].set_ylabel('Frequency')
 
-    fig.savefig('./figures/data_distribution.pdf', bbox_inches='tight')
     plt.tight_layout()
     plt.show()
 
@@ -522,7 +513,6 @@ def plot_att_heads(all_attention_heads, dead_end_attention_heads, reprogramming_
         plt.ylabel('Heads')
         plt.xticks(rotation=90)
 
-        f.savefig('./figures/attention_heads_stacked.pdf', bbox_inches='tight')
         plt.tight_layout()
         plt.show() 
     
@@ -552,7 +542,6 @@ def plot_att_heads(all_attention_heads, dead_end_attention_heads, reprogramming_
             plt.xlabel('Features')
             plt.xticks(rotation=90)
 
-        f.savefig('./figures/attention_heads.pdf', bbox_inches='tight')
         plt.tight_layout()
         plt.show()
 
