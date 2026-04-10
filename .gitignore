@@ -1,6 +1,6 @@
 *.pyc
 *.pth
-
+.venv/
 .DS_Store
 
 datasets/*
