@@ -47,7 +47,7 @@ def evaluate_cls_cv(id, fold_results, model_config, dataset, device='cpu'):
      val_preds, val_labels = [], []
      for i, fold in tqdm(enumerate(fold_results, 1), desc="Evaluating Classifier"):
         model_path = fold['best_model_path']
-        state_dict = torch.load(model_path)
+        state_dict = torch.load(model_path, map_location='cpu')
         val_subset = Subset(dataset, fold['val_idx'])
         cls_valid_loader = DataLoader(val_subset, batch_size=32, shuffle=False)
         if id=='Multi':
